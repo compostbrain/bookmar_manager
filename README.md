@@ -13,8 +13,13 @@ Things you may want to cover:
 
 * Database creation
 
-* Database initialization
+$ createuser --createdb --login -P bookmark
 
+* Database initialization
+modify config/database.yml to include username and password under host
+run:
+bin/rails db:create
+bin/rails db:migrate
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)

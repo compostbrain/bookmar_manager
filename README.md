@@ -26,4 +26,6 @@ bin/rails db:migrate
 
 * Deployment instructions
 
-* ...
+*  create a topic?
+   delete a topic?
+   associated bookmarks displayed for each topic

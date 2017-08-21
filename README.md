@@ -8,7 +8,7 @@ Key Requirements:
 - X User
 
 ## Features
-- As a user, I want to sign up for a free account by providing a user name, password and email
+- X As a user, I want to sign up for a free account by providing a user name, password and email
 - X As a user, I want to sign in and out of Blocmarks
 - As a user, I want to email a URL to Blocmarks and have it saved in the Blocmarks database
 - As a user, I want to see an index of all topics and their bookmarks
@@ -21,7 +21,7 @@ Key Requirements:
 - Bootstrap -> formatting
 
 ## Refactor To-do's
-- Add user name to User Model
+- X Add user name to User Model
 - Fix signup confirm alert
 
 ## Init Procedure

@@ -32,6 +32,16 @@ describe 'Navigation' do
     end
   end
 
+# Clicking on a topic should take the user to that topic's show view and display only those bookmarks which belong to it
+  describe 'show' do
+    it 'has a link in #topics page' do
+      visit topics_path
+      click_link("show-topic-path")
+      expect(page.status_code).to eq(200)
+    end
+
+  end
+
   describe 'new' do
     it 'has a link on #topics page' do
     visit topics_path

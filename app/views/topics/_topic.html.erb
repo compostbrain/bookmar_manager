@@ -1,0 +1,6 @@
+
+<h2><%= topic.title %></h2>
+
+  <% topic.bookmarks.each do |bookmark| %>
+    <%= render 'bookmark_card' %>
+  <% end %>

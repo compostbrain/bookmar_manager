@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 describe 'Navigatiion' do
+  let :factory_user { create(:user) }
   before do
-    factory_user = FactoryGirl.create(:user)
     sign_in factory_user
   end
 
   describe 'to index' do
     before do
-      topic1 = FactoryGirl.create(:topic)
-      topic2 = FactoryGirl.create(:topic)
-      bookmark1 = FactoryGirl/create(:bookmark)
-      bookmark2 = FactoryGirl/create(:bookmark)
+      @topic1 = FactoryGirl.create(:topic, user: factory_user)
+      @topic2 = FactoryGirl.create(:topic, user: factory_user)
+      bookmark1 = FactoryGirl.create(:bookmark, topic: @topic1)
+      bookmark2 = FactoryGirl.create(:bookmark, topic: @topic2)
       visit topics_path
     end
 
@@ -24,7 +24,10 @@ describe 'Navigatiion' do
     end
 
     xit 'has a list of Topics with associated bookmarks' do
-      expe
+      within(:css, "#{@topic1.slug}") do
+        find
+        # find all bookmarks and expect the size to be 1
+      end
     end
   end
 end

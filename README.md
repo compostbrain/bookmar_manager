@@ -22,6 +22,8 @@ Key Requirements:
 
 ## Refactor To-do's
 - X Add user name to User Model
+- Fix sign-in view to only require email and password
+- Show username in dashboard homepage view
 - Fix signup confirm alert
 
 ## Init Procedure

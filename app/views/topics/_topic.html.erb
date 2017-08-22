@@ -1,6 +1,9 @@
 
 <h2><%= topic.title %></h2>
-
-  <% topic.bookmarks.each do |bookmark| %>
-    <%= render 'bookmark_card' %>
-  <% end %>
+<div class="col-md-12">
+  <div class="row">
+    <% topic.bookmarks.each do |bookmark| %>
+      <%= render 'shared/bookmark_card', bookmark: bookmark %>
+    <% end %>
+  </div>
+</div>

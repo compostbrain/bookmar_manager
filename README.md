@@ -12,6 +12,8 @@ Key Requirements:
 - X As a user, I want to sign in and out of Blocmarks
 - As a user, I want to email a URL to Blocmarks and have it saved in the Blocmarks database
 - As a user, I want to see an index of all topics and their bookmarks
+  - Allow users to create and destroy topics from the topics index view.
+  - Clicking on a topic should take the user to that topic's show view and display only those bookmarks which belong to it
 - As a user, I want to create, read, update, and delete bookmarks
 - As a user, I want to be the only one allowed to delete and update my bookmarks
 - As a user, I want to "like and unlike" bookmarks created by other users
@@ -23,8 +25,9 @@ Key Requirements:
 ## Refactor To-do's
 - X Add user name to User Model
 - Fix sign-in view to only require email and password
-- Show username in dashboard homepage view
+- X Show username in dashboard homepage view
 - Fix signup confirm alert
+- Paginate topics#index
 
 ## Init Procedure
 $ createuser --createdb --login -P bookmark

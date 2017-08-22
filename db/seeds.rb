@@ -1,7 +1,7 @@
 @user = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", username: 'testuser')
 
 10.times do
- Topic.create!(title: Faker::Lorem.sentence, user_id: @user.id)
+ Topic.create!(title: "##{Faker::Lorem.sentence}", user_id: @user.id)
 end
 topics = Topic.all
 60.times do

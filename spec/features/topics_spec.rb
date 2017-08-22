@@ -31,4 +31,48 @@ describe 'Navigation' do
       end
     end
   end
+
+  describe 'new' do
+    it 'has a link on #topics page' do
+    visit topics_path
+
+    click_link("new-topic-from-nav")
+    expect(page.status_code).to eq(200)
+    end
+  end
+
+  describe "creation" do
+    before do
+      visit new_topic_path
+    end
+
+    it "has a new form that can be reached" do
+      expect(page.status_code).to eq(200)
+    end
+
+    it "can be created from new form page" do
+
+      fill_in 'topic[title]', with: '#An Excellent Topic'
+      click_on "Save"
+
+      expect(page).to have_content('#An Excellent Topic')
+    end
+
+    it 'will have a user associated it' do
+      fill_in 'topic[title]', with: '#A User Associated Topic'
+      click_on "Save"
+
+      expect(User.last.topics.last.title).to eq('#A User Associated Topic')
+    end
+  end
+
+  describe 'delete ' do
+    it 'can be deleted' do
+      @topic = FactoryGirl.create(:topic)
+      visit topics_path
+
+      click_link("delete-topic-#{@topic.id}-from-index")
+      expect(page.status_code).to eq(200)
+    end
+  end
 end

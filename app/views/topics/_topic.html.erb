@@ -1,5 +1,6 @@
 
 <h2><%= topic.title %></h2>
+<%= link_to 'Delete', topic_path(topic), method: :delete,  id: "delete-topic-#{topic.id}-from-index", data: { confirm: 'Are you sure?' }  %>
 <div class="col-md-12">
   <div class="row">
     <% topic.bookmarks.each do |bookmark| %>

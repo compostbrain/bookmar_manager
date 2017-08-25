@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic.delete
+    @topic.destroy
     redirect_to topics_path, notice: 'Your topic was deleted'
   end
 

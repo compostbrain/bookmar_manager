@@ -1,9 +1,10 @@
-<h3>
-  <%= link_to "#{topic.title}", topic, id: "show-topic-path" %>
-</h3>
+<div class="container">
+  <span><h3><%= link_to "#{topic.title}", topic, id: "topic-show-path-#{topic.id}" %></h3></span><%= link_to '', topic_path(topic), method: :delete, id: "delete-topic-#{topic.id}-from-index", class: "glyphicon glyphicon-trash", data: { confirm: 'Are you sure?' }  %>
+</div>
 
-<%= link_to 'Delete', topic_path(topic), method: :delete,  id: "delete-topic-#{topic.id}-from-index", data: { confirm: 'Are you sure?' }  %>
-<div class="col-md-12">
+
+
+<div class="col-md-12", id="<%= topic.slug %>">
   <div class="row">
     <% topic.bookmarks.each do |bookmark| %>
       <%= render 'shared/bookmark_card', bookmark: bookmark %>

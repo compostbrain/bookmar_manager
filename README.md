@@ -2,7 +2,7 @@
 
 Key Requirements:
 
-## Models
+## Model
 - X Bookmark
 - X Topic
 - X User
@@ -29,18 +29,14 @@ Key Requirements:
 - Fix signup confirm alert
 - Paginate topics#index
 - Fix position on page for topic destroy action
-- finish feature tests for topic#show and #index 
+- finish feature tests for topic#show and #index
 
 ## Init Procedure
-$ createuser --createdb --login -P bookmark
+```
+$ createuser --createdb --login -P bookmark```
 
 * Database initialization
 modify config/database.yml to include username and password under host
 run:
 bin/rails db:create
 bin/rails db:migrate
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions

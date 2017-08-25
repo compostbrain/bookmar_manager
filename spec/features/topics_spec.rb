@@ -1,17 +1,18 @@
 require 'rails_helper'
 
 describe 'Navigation' do
-  let :factory_user { create(:user) }
+  let! :factory_user { create(:user) }
+  let! :topic1 { create(:topic, user: factory_user) }
+  let! :topic2 { create(:another_topic, user: factory_user) }
+  let! :bookmark1 { create(:bookmark, topic: topic1) }
+  let! :bookmark2 { create(:bookmark, topic: topic2) }
+
   before do
     sign_in factory_user
   end
 
   describe 'to index' do
     before do
-      @topic1 = FactoryGirl.create(:topic, user: factory_user)
-      @topic2 = FactoryGirl.create(:topic, user: factory_user)
-      @bookmark1 = FactoryGirl.create(:bookmark, topic: @topic1)
-      @bookmark2 = FactoryGirl.create(:bookmark, topic: @topic2)
       visit topics_path
     end
 
@@ -23,10 +24,11 @@ describe 'Navigation' do
       expect(page).to have_content(/Topics/)
     end
 
-    xit 'has a list of Topics with associated bookmarks' do
-      within(:css, "#{@topic1.slug}") do
-
-        expect(page.find("#bookmark").all).to eq(1)
+    it 'has a list of Topics with associated bookmarks' do
+      topic = topic1.slug
+      bookmark = bookmark1
+      within(:css, "##{topic}") do
+        expect( all('.bookmark').count ).to eq(1)
         # find all bookmarks and expect the size to be 1
       end
     end
@@ -34,10 +36,18 @@ describe 'Navigation' do
 
 # Clicking on a topic should take the user to that topic's show view and display only those bookmarks which belong to it
   describe 'show' do
-    it 'has a link in #topics page' do
+    before do
       visit topics_path
-      click_link("show-topic-path")
+    end
+
+    it 'has a link in #topics page' do
+      click_link("topic-show-path-#{topic1.id}")
       expect(page.status_code).to eq(200)
+
+    end
+
+    it 'displays only those bookmarks associated with it' do
+
     end
 
   end

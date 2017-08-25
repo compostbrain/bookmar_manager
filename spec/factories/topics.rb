@@ -5,4 +5,9 @@ FactoryGirl.define do
     title "Through the Looking Glass"
     user
   end
+
+  factory :another_topic, class: "Topic" do
+    title "Another topic"
+    user
+  end
 end

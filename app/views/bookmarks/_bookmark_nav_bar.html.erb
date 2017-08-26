@@ -9,13 +9,10 @@
   <li class="<%= active?(topics_path) %>">
     <%= link_to "Topics", topics_path %>
   </li>
-    <% if current_page?(root_path) %>
-    <% link_to "" %>
-    <% else %>
-    <li class="<%= active?(new_topic_path) %>">
-      <%= link_to "Add New Topic", new_topic_path, id: 'new-topic-from-nav' %>
-    </li>
-  <% end %>
+  <li class="<%= active?(new_topic_bookmark_url) %>">
+    <%= link_to "Add New Bookmark", new_topic_bookmark_path(@topic.id), id: 'new-bookmark-from-nav' %>
+  </li>
+
   <li class="dropdown pull-right">
     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Options<strong class="caret"></strong>
     </a>

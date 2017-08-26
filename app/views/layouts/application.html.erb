@@ -12,7 +12,11 @@
   <body class="container">
     <div class="row">
     		<div class="col-md-12">
-          <%= render 'shared/nav' %>
+          <% if content_for?(:navbar) %>
+            <%= yield(:navbar) %>
+          <% else %>
+            <%= render 'shared/nav' %>
+          <% end %>
           <% if notice.present? %>
             <aside class="alert alert-info">
               <%= notice %>

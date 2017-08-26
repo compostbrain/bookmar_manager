@@ -8,7 +8,7 @@
   <div class="col-md-12", id="<%= topic.slug %>">
     <div class="row">
       <% topic.bookmarks.each do |bookmark| %>
-        <%= render 'shared/bookmark_card', bookmark: bookmark %>
+        <%= render partial: 'shared/bookmark_card', locals: { topic: topic, bookmark: bookmark} %>
       <% end %>
     </div>
   </div>

@@ -5,11 +5,13 @@
       <strong>
         <%= bookmark.url %>
       </strong>
-      <!-- <p>
+
+      <p>
+        <%= link_to '', edit_topic_bookmark_path(topic.id, bookmark.id), id: "edit-#{bookmark.id}", class: 'glyphicon glyphicon-pencil index-icons' %>
       </p>
       <p>
-        <a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-      </p>-->
+        <%= link_to '', topic_bookmarks_path(topic.id, bookmark.id), method: :destroy, id: "destroy-bookmark-#{bookmark.id}-from-index", class: 'glyphicon glyphicon-trash index-icons' %>
+      </p>
     </div>
   </div>
 </div>

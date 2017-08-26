@@ -21,6 +21,10 @@ class BookmarksController < ApplicationController
   def edit
   end
 
+  def destroy
+    @bookmark.destroy
+    redirect_to topic_path, notice: 'Your bookmark was deleted'  end
+
   private
 
   def set_topic

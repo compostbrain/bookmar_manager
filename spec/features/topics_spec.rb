@@ -63,6 +63,7 @@ describe 'Navigation' do
 
   describe "creation" do
     before do
+      byebug
       visit new_topic_path
     end
 

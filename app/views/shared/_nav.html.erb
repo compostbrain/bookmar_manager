@@ -14,8 +14,8 @@
       <%= link_to "Add New Topic", new_topic_path, id: 'new-topic-from-nav' %>
     </li>
     <% elsif current_page?(topic_path(@topic.id)) %>
-    <li class="active">
-      <%= link_to "Add New Bookmark", [:new, @topic, @bookmark], id: 'new-bookmark-from-nav' %>
+    <li class="<%= active?(new_topic_bookmark_path(@topic.id)) %>">
+      <%= link_to "Add New Bookmark", new_topic_bookmark_path(@topic.id), id: 'new-bookmark-from-nav' %>
     </li>
     <% end %>
   <li class="dropdown pull-right">

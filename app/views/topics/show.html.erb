@@ -1,4 +1,8 @@
-<h1><%= @topic.title %></h1>
+<% content_for :navbar do %>
+  <%= render 'shared/bookmark_nav_bar', locals: { topic: @topic } %>
+<% end %>
+
+<h1 class="well"><%= @topic.title %></h1>
 
 <% @topic.bookmarks.each do |bookmark| %>
   <%= render partial: 'shared/bookmark_card', locals: { topic: @topic, bookmark: bookmark } %>

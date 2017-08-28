@@ -9,7 +9,7 @@
   <li class="<%= active?(topics_path) %>">
     <%= link_to "Topics", topics_path %>
   </li>
-  <li class="<%= active?(new_topic_bookmark_url) %>">
+  <li class="<%= active?(new_topic_bookmark_path(@topic.id)) %>">
     <%= link_to "Add New Bookmark", new_topic_bookmark_path(@topic.id), id: 'new-bookmark-from-nav' %>
   </li>
 

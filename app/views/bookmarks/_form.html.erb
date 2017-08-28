@@ -1,5 +1,5 @@
 <% content_for :navbar do %>
-  <%= render 'bookmark_nav_bar' %>
+  <%= render partial: 'shared/bookmark_nav_bar', locals: { topic: @topic, bookmark: @bookmark}  %>
 <% end %>
 
  <%= form_for [@topic, @bookmark], class: "form-horizontal" do |f| %>

@@ -1,9 +1,8 @@
 <div class="container">
-  <table class="table">
-    <span><h3><%= link_to "#{topic.title}", topic, id: "topic-show-path-#{topic.id}" %></h3></span><%= link_to '', topic_path(topic), method: :delete, id: "delete-topic-#{topic.id}-from-index", class: "glyphicon glyphicon-trash", data: { confirm: 'Are you sure?' }  %>
 
-
-
+  <div class="well">
+      <h3><%= link_to "#{topic.title}", topic, id: "topic-show-path-#{topic.id}" %></h3><span><%= link_to '', topic_path(topic), method: :delete, id: "delete-topic-#{topic.id}-from-index", class: "glyphicon glyphicon-trash pull-right", data: { confirm: 'Are you sure?' }  %></span>
+  </div>
 
   <div class="col-md-12", id="<%= topic.slug %>">
     <div class="row">
@@ -12,7 +11,5 @@
       <% end %>
     </div>
   </div>
-
-  </table>
 
 </div>

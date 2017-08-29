@@ -6,9 +6,12 @@
         <%= bookmark.url %>
       </strong>
       <p class="pull-right">
+        <% if policy(bookmark).update? %>
         <%= link_to '', edit_topic_bookmark_path(topic, bookmark), id: "edit-#{bookmark.id}", class: 'glyphicon glyphicon-pencil index-icons' %>
-    
+        <% end %>
+        <% if policy(bookmark).destroy? %>
         <%= link_to '', topic_bookmark_path(topic, bookmark), method: :delete, id: "destroy-bookmark-#{bookmark.id}-from-index", class: 'glyphicon glyphicon-trash index-icons', data: { confirm: 'Are you sure?' }%>
+        <% end %>
       </p>
 
 

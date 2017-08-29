@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_topic, only: [:new, :create, :edit]
   before_action :set_bookmark, only: [:edit, :update, :destroy]
 
@@ -24,7 +25,7 @@ class BookmarksController < ApplicationController
 
   def update
     @bookmark.assign_attributes(bookmark_params)
-
+    authorize @bookmark
     if @bookmark.save
       flash[:notice] = "Bookmark was updated."
       redirect_to topics_path
@@ -35,6 +36,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    authorize @bookmark
     @bookmark.delete
     redirect_to topics_path, notice: 'Your bookmark was deleted'
   end
@@ -44,6 +46,8 @@ class BookmarksController < ApplicationController
   def set_topic
     @topic = Topic.find(params[:topic_id])
   end
+
+
 
   def set_bookmark
     @bookmark = Bookmark.find(params[:id])

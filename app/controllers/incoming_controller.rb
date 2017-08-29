@@ -1,22 +1,35 @@
 class IncomingController < ApplicationController
 
   # http://stackoverflow.com/questions/1177863/how-do-i-ignore-the-authenticity-token-for-specific-actions-in-rails
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_filter :verify_authenticity_token, only: [:create]
 
   def create
     # Take a look at these in your server logs
     # to get a sense of what you're dealing with.
     puts "INCOMING PARAMS HERE: #{params}"
 
-    # You put the message-splitting and business
-    # magic here.
-    # Find the user by using params[:sender]
-     # Find the topic by using params[:subject]
-     # Assign the url to a variable after retreiving it from params["body-plain"]
+     incoming_user = params[:sender]
+     incoming_topic = params[:subject]
+     incoming_bookmark = params["body-plain"]
 
-     # Check if user is nil, if so, create and save a new user
+     if !User.exists?(email: incoming_user)
+       new_user = User.create(email: incoming_user, password: "password", username: incoming_user)
+     else
+       new_user = User.find(params[])
+     end
 
-     # Check if the topic is nil, if so, create and save a new topic
+     if !Topic.exists?(title: incoming_topic)
+       new_topic = Topic.create(title: incoming_topic, user_id: new_user)
+     else
+       new_topic = incoming_topic
+     end
+
+
+     if !Bookmark.exist?(url: incoming_bookmark, topic_id: new_topic)
+       new_bookmark = Bookmark.create(url: incoming_bookmark, topic_id: new_topic)
+
+     end
+
 
      # Now that you're sure you have a valid user and topic, build and save a new bookmark
 

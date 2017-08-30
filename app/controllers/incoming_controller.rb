@@ -1,7 +1,7 @@
 class IncomingController < ApplicationController
 
   # http://stackoverflow.com/questions/1177863/how-do-i-ignore-the-authenticity-token-for-specific-actions-in-rails
-  skip_forgery_protection(options = {only: [:create]})
+  skip_forgery_protection only: [:create]
 
   def create
 

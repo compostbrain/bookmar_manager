@@ -31,7 +31,7 @@ class IncomingController < ApplicationController
     end
 
 
-    if !Bookmark.exist?(url: incoming_bookmark, topic_id: new_topic)
+    if !Bookmark.exists?(url: incoming_bookmark, topic_id: new_topic)
       new_bookmark = Bookmark.create(url: incoming_bookmark, topic_id: new_topic)
 
     end

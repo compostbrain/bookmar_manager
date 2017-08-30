@@ -14,27 +14,26 @@ class IncomingController < ApplicationController
     puts incoming_topic
     incoming_bookmark = params["body-plain"]
     puts incoming_bookmark
-    puts User.exists?(email: incoming_user)
 
-    if !User.exists?(email: incoming_user)
-      new_user = User.new(email: incoming_user, password: "password", username: incoming_user)
+    if !User.exists?(email: "#{incoming_user}")
+      new_user = User.new(email: "#{incoming_user}", password: "password", username: "#{incoming_user}")
       new_user.skip_confirmation!
       new_user.save
     else
-      new_user = User.find_by(email: incoming_user)
+      new_user = User.find_by(email: "#{incoming_user}")
     end
 
-    if !Topic.exists?(title: incoming_topic)
-      new_topic = Topic.create(title: incoming_topic, user_id: new_user)
+    if !Topic.exists?(title: "#{incoming_topic}")
+      new_topic = Topic.create(title: "#{incoming_topic}", user_id: new_user.id)
     else
-      new_topic = Topic.find_by(title: incoming_topic)
+      new_topic = Topic.find_by(title: "#{incoming_topic}")
     end
 
 
-    if !Bookmark.exists?(url: incoming_bookmark, topic_id: new_topic)
-      new_bookmark = Bookmark.create(url: incoming_bookmark, topic_id: new_topic)
+  #  if !Bookmark.exists?(url: incoming_bookmark, topic_id: new_topic)
+    Bookmark.create(url: "#{incoming_bookmark}", topic_id: new_topic.id)
 
-    end
+    #end
 
     head 200
   end

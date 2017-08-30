@@ -17,7 +17,9 @@ class IncomingController < ApplicationController
     puts User.exists?(email: incoming_user)
 
     if !User.exists?(email: incoming_user)
-      new_user = User.create(email: incoming_user, password: "password", username: incoming_user)
+      new_user = User.new(email: incoming_user, password: "password", username: incoming_user)
+      new_user.skip_confirmation!
+      new_user.save
     else
       new_user = User.find_by(email: incoming_user)
     end

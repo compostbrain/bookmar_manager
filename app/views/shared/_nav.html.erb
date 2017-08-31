@@ -10,7 +10,10 @@
     <%= link_to "Topics", topics_path %>
   </li>
     <% if current_page?(root_path) %>
-    <% link_to "" %>
+    <li class="<%= active?(user_path(current_user.id)) %>">
+      <%= link_to "My Bookmarks", user_path(current_user.id), id: "users-show-path" %>
+    </li>
+
     <% else %>
     <li class="<%= active?(new_topic_path) %>">
       <%= link_to "Add New Topic", new_topic_path, id: 'new-topic-from-nav' %>

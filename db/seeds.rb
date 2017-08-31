@@ -1,5 +1,5 @@
-@user1 = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", username: 'testuser')
-@user2 = User.create(email: "test2@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", username: 'testuser2')
+@user1 = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", username: 'testuser', confirmed_at: DateTime.now)
+@user2 = User.create(email: "test2@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", username: 'testuser2', confirmed_at: DateTime.now)
 
 
 5.times do

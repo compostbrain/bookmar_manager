@@ -1,0 +1,13 @@
+<div class="container">
+
+
+
+  <div class="col-md-12"">
+    <div class="row">
+      <% @user_bookmarks.each do |bookmark| %>
+        <%= render partial: 'shared/bookmark_card', locals: { topic: bookmark.topic_id, bookmark: bookmark} %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

@@ -16,8 +16,8 @@ Key Requirements:
 - X As a user, I want to create, read, update, and delete bookmarks
 - X As a user, I want to be the only one allowed to delete and update my bookmarks
 - X As a user, I want to "like and unlike" bookmarks created by other users
-- As a user, I want to see a list of bookmarks on my personal profile that I've added or liked
-- As a user, I want to email a URL to Blocmarks and have it saved in the Blocmarks database
+- X As a user, I want to see a list of bookmarks on my personal profile that I've added or liked
+- X As a user, I want to email a URL to Blocmarks and have it saved in the Blocmarks database
 
 
 ## UI
@@ -30,6 +30,11 @@ Key Requirements:
 - Paginate topics#index
 - add automated tests for bookmark crud features
 - restyle like/unlike buttons
+- fix dropdown menu
+- add topic dividers to users#show view
+- change redierect for edit/delete depending on context
+- use ajax for like/unlike to prevent reloading of entire page_load
+- write tests to cover all features 
 
 ## Init Procedure
 ```

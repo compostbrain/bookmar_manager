@@ -1,5 +1,11 @@
+<<<<<<< HEAD
   Rails.application.routes.draw do
+=======
+Rails.application.routes.draw do
+
+>>>>>>> 9-User-Profiles
   devise_for :users
+  resources :users, only: [:show]
 
   root 'dashboard#index'
   post :incoming, to: 'incoming#create'
